@@ -10,6 +10,8 @@ import java.util.Objects;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println(7==7);
+        System.out.println(new Foo(7)==new Foo(7));
         Student S_irakli = new Student("74108520963", 6);
         Person P_iko = new Person("74108520963");
 
