@@ -3,6 +3,6 @@ package ge.itvet;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("hello from dato chkheidze");
+        System.out.println("hello github");
     }
 }
