@@ -1,7 +1,10 @@
 package ge.itvet.equalsmethod;
 
+import java.util.Objects;
+
 public class Student extends Person {
     private int classNo;
+
 
     public Student(String personalNo, int classNo) {
         super(personalNo);
@@ -15,5 +18,18 @@ public class Student extends Person {
 
         return student.personalNo.equals(this.personalNo)
                 && this.classNo == student.classNo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(personalNo,classNo);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "classNo=" + classNo +
+                ", personalNo='" + personalNo + '\'' +
+                '}';
     }
 }

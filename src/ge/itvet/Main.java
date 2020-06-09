@@ -1,23 +1,24 @@
 package ge.itvet;
 
-import ge.itvet.equalsmethod.Bar;
-import ge.itvet.equalsmethod.Foo;
-import ge.itvet.equalsmethod.Person;
 import ge.itvet.equalsmethod.Student;
 
-import java.util.Objects;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println(7==7);
-        System.out.println(new Foo(7)==new Foo(7));
-        Student S_irakli = new Student("74108520963", 6);
-        Person P_iko = new Person("74108520963");
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("შემოიტანეთ სტუდენტის პირადი ნომერი");
+        String pn = scanner.next();
+        System.out.println("შემოიტანეთ სტუდენტის კლასის ნომერი");
+        Integer classNo = scanner.nextInt();
 
-        System.out.println("Student equals person  " + S_irakli.equals(P_iko)); // false
-        System.out.println("Person equals Student  " + P_iko.equals(S_irakli)); // true
+        Student student = new Student(pn, classNo);
+        FileOutputStream fos = new FileOutputStream("D:\\Java\\student.txt");
 
-        System.out.println(new Foo(7).equals(new Foo(7)));
+        fos.write(student.toString().getBytes());
     }
+
 }

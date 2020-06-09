@@ -1,5 +1,7 @@
 package ge.itvet.equalsmethod;
 
+import java.util.Objects;
+
 public class Foo {
     private int variable;
     private String name;
@@ -12,6 +14,7 @@ public class Foo {
         this.variable = variable;
         this.name = name;
     }
+
 
     public int getVariable() {
         return variable;
@@ -36,4 +39,18 @@ public class Foo {
         return this.variable == aFoo.variable
                 && (bothAreNull || (this.name != null && this.name.equals(aFoo.name)));
     }
+
+    public void aMethod() {
+    }
 }
+
+
+/*
+A <- B <- C <- D
+A a = new D(); a instanceof B -> true
+A a = new A(); a instanceof B -> false
+
+a instanceof B
+B b = (B) a;
+
+*/
