@@ -13,6 +13,7 @@ public class Student extends Person {
 
     @Override
     public boolean equals(Object o) {
+
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
 
@@ -22,7 +23,7 @@ public class Student extends Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(personalNo,classNo);
+        return Objects.hash(personalNo, classNo);
     }
 
     @Override

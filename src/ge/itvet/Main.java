@@ -1,24 +1,33 @@
 package ge.itvet;
 
-import ge.itvet.equalsmethod.Student;
+import ge.itvet.collections.TV;
+import ge.itvet.collections.TvComparator;
+import ge.itvet.equalsmethod.Foo;
+import ge.itvet.equalsmethod.Person;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("შემოიტანეთ სტუდენტის პირადი ნომერი");
-        String pn = scanner.next();
-        System.out.println("შემოიტანეთ სტუდენტის კლასის ნომერი");
-        Integer classNo = scanner.nextInt();
 
-        Student student = new Student(pn, classNo);
-        FileOutputStream fos = new FileOutputStream("D:\\Java\\student.txt");
 
-        fos.write(student.toString().getBytes());
+        List<TV> tvs = new ArrayList<>();
+        tvs.add(new TV(140, 1500, "TVT"));
+        tvs.add(new TV(109, 2000, "Samsung"));
+        tvs.add(new TV(109, 2000, "Sharp"));
+        tvs.add(new TV(109, 2000, "Sony"));
+        tvs.add(new TV(109, 2000, "Lg"));
+
+        TvComparator.ByBrand byBrand = new TvComparator.ByBrand();
+
+        System.out.println(tvs);
+        tvs.sort(byBrand);
+        System.out.println(tvs);
+
+
+
     }
-
 }
+
+

@@ -1,13 +1,13 @@
 package ge.itvet.equalsmethod;
 
-import java.util.Objects;
-
-public class Foo {
+public class Foo extends Bar {
     private int variable;
     private String name;
 
     public Foo(int variable) {
         this.variable = variable;
+    }
+    public Foo() {
     }
 
     public Foo(int variable, String name) {
