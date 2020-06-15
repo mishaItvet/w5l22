@@ -1,9 +1,14 @@
 package ge.itvet.collections;
 
-import java.util.Arrays;
+import ge.itvet.equalsmethod.Foo;
 
-public class DynamicArray<E, B> {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class DynamicArray<E> implements Iterable<E> {
     private Object arr[];
+
 
     public DynamicArray() {
         arr = new Object[0];
@@ -26,16 +31,35 @@ public class DynamicArray<E, B> {
         return arr.length;
     }
 
-    public void method(E e) {
-    }
-
-    public B method1(E e, B b) {
-        return b;
-    }
 
     @Override
     public String toString() {
         return Arrays.toString(arr);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new DynamicArrayIterator<E>((E[]) arr);
+    }
+
+    public static class DynamicArrayIterator<E> implements Iterator<E> {
+        private final E[] arr;
+        private int iteration;
+
+        public DynamicArrayIterator(E[] arr) {
+            this.arr = arr;
+            this.iteration = 0;
+        }
+
+        @Override
+        public E next() {
+            return arr[iteration++];
+        }
+
+        @Override
+        public boolean hasNext() {
+            return iteration < arr.length;
+        }
     }
 }
 
