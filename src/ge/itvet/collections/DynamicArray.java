@@ -31,7 +31,6 @@ public class DynamicArray<E> implements Iterable<E> {
         return arr.length;
     }
 
-
     @Override
     public String toString() {
         return Arrays.toString(arr);
