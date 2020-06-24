@@ -1,10 +1,9 @@
 package ge.itvet.collections;
 
-import ge.itvet.equalsmethod.Foo;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class DynamicArray<E> implements Iterable<E> {
     private Object arr[];
@@ -29,6 +28,22 @@ public class DynamicArray<E> implements Iterable<E> {
 
     public int size() {
         return arr.length;
+    }
+
+    public DynamicArray<E> filter(Predicate<E> predicate) {
+        DynamicArray<E> newArray = new DynamicArray<>();
+        for (Object o : arr) {
+            if (predicate.test((E) o)) {
+                newArray.add((E) o);
+            }
+        }
+        return newArray;
+    }
+
+    public void updateData(Consumer<E> consumer) {
+        for (Object o : arr) {
+            consumer.accept((E) o);
+        }
     }
 
     @Override

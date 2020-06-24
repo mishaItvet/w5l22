@@ -1,7 +1,7 @@
 package ge.itvet.collections;
 
 public class MyInteger {
-    public final int value;
+    private int value;
 
     public MyInteger(int value) {
         this.value = value;
@@ -27,4 +27,11 @@ public class MyInteger {
         return value + "";
     }
 
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 }
